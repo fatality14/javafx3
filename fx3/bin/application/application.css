@@ -1,0 +1,113 @@
+.root{
+	-fx-min-width: 800px;
+	-fx-min-height: 600px;
+	-fx-background-color: #eb4034;
+}
+
+.field{
+	-fx-font-family: 'Sansita Swashed';
+	
+	-fx-background-color: white;
+	-fx-text-fill: black;
+	-fx-font-size: 25px;
+	
+	-fx-max-width: 500px;
+	-fx-min-height: 50px;
+	
+	-fx-border-radius: 50px;
+	-fx-background-radius: 50px;
+	
+	-fx-alignment: center;
+	
+	-fx-border-width: 1;
+	-fx-border-color: #280959;
+}
+
+.result{
+	-fx-font-family: 'Sansita Swashed';
+	
+	-fx-text-fill: black;
+	-fx-font-size: 20px;
+	
+	-fx-max-width: 200px;
+	
+	-fx-border-radius: 50px;
+	-fx-background-radius: 50px;
+	
+	-fx-alignment: center;
+}
+
+.send{
+	-fx-font-family: 'Sansita Swashed';
+	
+	-fx-background-color: white;
+	
+	-fx-text-fill: black;
+	-fx-font-size: 20px;
+	
+	-fx-max-width: 200px;
+	
+	-fx-border-radius: 50px;
+	-fx-background-radius: 50px;
+	
+	-fx-alignment: center;
+}
+
+/*
+.ball{	
+	-fx-font-family: 'Sansita Swashed';
+	
+	-fx-background-color: #303030;
+	-fx-text-fill: white;
+	-fx-font-size: 50px;
+	
+	-fx-min-width: 400px;
+	-fx-min-height: 400px;
+	
+	-fx-border-radius: 50%;
+	-fx-background-radius: 50%;
+	
+	-fx-alignment: center;
+	
+	-fx-border-width: 5;
+	-fx-border-color: #280959;
+}
+.ball1{	
+	-fx-font-family: 'Sansita Swashed';
+	
+	-fx-background-color: #303030;
+	-fx-text-fill: white;
+	-fx-font-size: 100px;
+	
+	-fx-min-width: 400px;
+	-fx-min-height: 400px;
+	
+	-fx-border-radius: 50%;
+	-fx-background-radius: 50%;
+	
+	-fx-alignment: center;
+	
+	-fx-border-width: 5;
+	-fx-border-color: #8336ff;
+}
+
+.ask{
+	-fx-font-family: 'Sansita Swashed';
+	
+	-fx-border-width: 1;
+	-fx-border-color: white;
+	
+	-fx-border-radius: 50px;
+	-fx-background-radius: 50px;
+	
+	-fx-background-color: rgba(255,255,255,0.7);
+	
+	-fx-padding: 0 20px 0 20px;
+	
+	-fx-alignment: center;
+	
+	-fx-max-width: 500px;
+	
+	-fx-font-size: 50px;
+	-fx-text-fill: #303030;
+}*/
