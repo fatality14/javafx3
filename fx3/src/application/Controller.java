@@ -25,7 +25,9 @@ public class Controller{
 	private Data data;
 	private Mail mail;
 	
-	ControllerMouseSendButtonEvent keyEvents;
+	ControllerMouseSendButtonEvent mouseEvent;
+	ControllerTextFieldChangeEvent textChanged;
+	
 	Controller(Pane parent){
 		super();
 		this.parent = parent;
@@ -53,9 +55,10 @@ public class Controller{
 		sendButton.getStyleClass().add("send");
 		sendButton.setText("Send message.");
 		
-		keyEvents = new ControllerMouseSendButtonEvent(this);
+		mouseEvent = new ControllerMouseSendButtonEvent(this);
+		textChanged = new ControllerTextFieldChangeEvent(this);
 	}
-	
+
 	public void embed() {
 		parent.getChildren().add(messageTheme);
 		parent.getChildren().add(message);
@@ -66,7 +69,13 @@ public class Controller{
 				
 		parent.getChildren().add(sendButton);
 		
-		sendButton.setOnMouseClicked(keyEvents);
+		messageTheme.setOnKeyTyped(textChanged);
+		message.setOnKeyTyped(textChanged);
+		login.setOnKeyTyped(textChanged);
+		password.setOnKeyTyped(textChanged);
+		recipients.setOnKeyTyped(textChanged);
+		
+		sendButton.setOnMouseClicked(mouseEvent);
 	}
 	
 	public void trySendMessage() {
@@ -127,5 +136,9 @@ public class Controller{
 		login.setText("testsubj@gmail.com");
 		password.setText("passsdsf");
 		recipients.setText("anothertestsubj@mail.com");
+	}
+	
+	public Mail getMail() {
+		return mail;
 	}
 }
