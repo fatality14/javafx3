@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.mail.MessagingException;
 
+import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -77,7 +78,7 @@ public class Controller{
 				) {
 			result.setText("Error filling fields!");
 
-			setDefaultFieldData();
+			setDefaultFieldData1();
 			return;
 		}
 		
@@ -87,14 +88,30 @@ public class Controller{
 		ArrayList<String> rec = new ArrayList<>();
 		rec.add(recipients.getText());
 		
-//		try {
-//			mail.sendMessage(rec, messageTheme.getText(), message.getText());
-//		}
-//		catch(MessagingException e) {
-//			result.setText(e.getMessage());
-//		}
+		Runnable task = new Runnable() {
+			public void run() {
+				try {
+					mail.sendMessage(rec, messageTheme.getText(), message.getText());
+					Platform.runLater(new Runnable() {
+						public void run(){
+							result.setText("Message sent!");
+						}
+					});
+				}
+				catch(MessagingException e) {
+					Platform.runLater(new Runnable() {
+						public void run(){
+							result.setText(e.getMessage());
+						}
+					});
+					return;
+				}
+			}
+		};
+		Thread thread = new Thread(task);
 		
-		result.setText("Message sent!");
+		result.setText("Sending...");
+		thread.run();
 	}
 	
 	public void setDefaultFieldData() {
@@ -103,5 +120,12 @@ public class Controller{
 		login.setText("fatality17nik@gmail.com");
 		password.setText("dVopx111");
 		recipients.setText("fatality14nik@gmail.com");
+	}
+	public void setDefaultFieldData1() {
+		messageTheme.setText("Лабораторная №8 по Java");
+		message.setText("Сообщение пересылается без проблем");
+		login.setText("testsubj@gmail.com");
+		password.setText("passsdsf");
+		recipients.setText("anothertestsubj@mail.com");
 	}
 }

@@ -67,7 +67,7 @@ public class Mail {
 		if(data.isDoTLS()) {
 			properties.put("mail.smtp.starttls.enable", Boolean.toString(data.isDoTLS()));
 		}
-		else if (data.isDoSSL()) {
+		if (data.isDoSSL()) {
 			properties.put("mail.smtp.socketFactory.port", Integer.toString(data.getPort()));
 	        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 		}
